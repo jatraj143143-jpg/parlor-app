@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Shraddha Beauty Parlour</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shraddha Beauty Parlour | Luxury Booking</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* CSS Same as before */
         :root { --primary-gold: #D4AF37; --secondary-gold: #C5A028; --soft-pink: #F8C3D3; --dark-bg: #121212; --card-bg: #1E1E1E; --text-light: #F5F5F5; --text-dim: #AAAAAA; --danger: #ff4d4d; --success: #4caf50; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; -webkit-tap-highlight-color: transparent; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: var(--dark-bg); color: var(--text-light); overflow-x: hidden; scroll-behavior: smooth; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--primary-gold); }
         .hidden { display: none !important; }
@@ -22,19 +21,19 @@
         .auth-box { background: var(--card-bg); padding: 2rem; width: 90%; max-width: 400px; border: 1px solid var(--primary-gold); border-radius: 8px; text-align: center; }
         .input-group { margin-bottom: 1rem; text-align: left; }
         .input-group label { display: block; color: var(--soft-pink); font-size: 0.9rem; margin-bottom: 5px; }
-        .input-group input, .input-group textarea { width: 100%; padding: 10px; background: #2b2b2b; border: 1px solid #444; color: #fff; border-radius: 4px; font-size: 16px; } /* Increased font size for mobile */
-        header { background: rgba(30, 30, 30, 0.98); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #333; height: 70px; }
-        .logo h3 { margin: 0; font-size: 1.1rem; }
-        .center-welcome { color: var(--soft-pink); font-family: 'Playfair Display', serif; font-size: 1rem; text-align: center; flex-grow: 1; display: none; }
-        .nav-actions { display: flex; gap: 8px; align-items: center; }
-        @media (min-width: 600px) { .center-welcome { display: block; } }
+        .input-group input, .input-group textarea { width: 100%; padding: 10px; background: #2b2b2b; border: 1px solid #444; color: #fff; border-radius: 4px; }
+        header { background: rgba(30, 30, 30, 0.95); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #333; }
+        .logo h3 { margin: 0; font-size: 1.2rem; }
+        .center-welcome { color: var(--soft-pink); font-family: 'Playfair Display', serif; font-size: 1.1rem; text-align: center; flex-grow: 1; }
+        .nav-actions { display: flex; gap: 10px; align-items: center; }
+        @media (max-width: 600px) { .center-welcome { display: none; } }
         .hero { text-align: center; padding: 4rem 1rem; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; }
-        .hero h2 { font-size: 2.2rem; margin-bottom: 1rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-        .section-padding { padding: 2rem 1rem; }
+        .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .section-padding { padding: 3rem 5%; }
         .section-title { text-align: center; margin-bottom: 2rem; }
         .divider { width: 50px; height: 3px; background: var(--primary-gold); margin: 10px auto; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-        .service-card { background: var(--card-bg); border-radius: 8px; overflow: hidden; border: 1px solid #333; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .service-card { background: var(--card-bg); border-radius: 8px; overflow: hidden; transition: transform 0.3s; border: 1px solid #333; }
         .service-img { width: 100%; height: 200px; object-fit: cover; }
         .service-info { padding: 1.5rem; }
         .service-price { color: var(--soft-pink); font-weight: bold; font-size: 1.1rem; float: right; }
@@ -48,25 +47,22 @@
         .star-input { display: flex; gap: 5px; font-size: 1.5rem; cursor: pointer; justify-content: center; margin-bottom: 15px; }
         .star-input i { color: #555; transition: 0.2s; }
         .star-input i.active { color: #FFD700; }
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: flex; justify-content: center; align-items: center; z-index: 1000; backdrop-filter: blur(2px); }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; z-index: 1000; backdrop-filter: blur(5px); }
         .modal-content { background: var(--card-bg); padding: 2rem; border-radius: 8px; width: 90%; max-width: 500px; border: 1px solid var(--primary-gold); max-height: 90vh; overflow-y: auto; position: relative; }
-        .close-modal { position: absolute; top: 10px; right: 15px; font-size: 2rem; cursor: pointer; color: var(--text-dim); }
+        .close-modal { position: absolute; top: 15px; right: 15px; font-size: 1.5rem; cursor: pointer; color: var(--text-dim); }
         .qr-placeholder { width: 150px; height: 150px; background: #fff; margin: 10px auto; display: flex; align-items: center; justify-content: center; border: 4px solid var(--primary-gold); }
         .booking-item { background: #2b2b2b; padding: 1rem; margin-bottom: 1rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; }
         .status-badge { padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; }
         .status-Pending { background: #ff9800; color: #000; } .status-Confirmed { background: var(--success); color: #fff; } .status-Rejected { background: var(--danger); color: #fff; }
-        .notification { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #222; border: 1px solid var(--primary-gold); padding: 15px 25px; border-radius: 30px; z-index: 2000; box-shadow: 0 5px 20px rgba(0,0,0,0.8); animation: fadeInUp 0.5s ease-out; text-align: center; min-width: 250px; width: 80%; }
-        .notification strong { color: var(--primary-gold); display: block; margin-bottom: 5px; }
-        @keyframes fadeInUp { from { transform: translate(-50%, 50px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
         .loader { border: 3px solid #f3f3f3; border-top: 3px solid var(--primary-gold); border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; display: inline-block; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        /* Page Loader */
-        #page-loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--dark-bg); z-index: 9999; display: flex; justify-content: center; align-items: center; color: var(--primary-gold); }
+        .notification { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #222; border: 1px solid var(--primary-gold); padding: 15px 25px; border-radius: 30px; z-index: 2000; box-shadow: 0 5px 20px rgba(0,0,0,0.8); animation: fadeInUp 0.5s ease-out; text-align: center; min-width: 250px; }
+        .notification strong { color: var(--primary-gold); display: block; margin-bottom: 5px; }
+        @keyframes fadeInUp { from { transform: translate(-50%, 50px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
     </style>
 </head>
 <body>
-    <div id="page-loader"><div class="loader"></div></div>
-    <div id="auth-section" class="hidden">
+    <div id="auth-section">
         <div id="auth-container">
             <div class="auth-box reveal">
                 <h2 style="margin-bottom: 20px;">Shraddha Beauty Parlour</h2>
@@ -90,11 +86,11 @@
 
     <div id="app-section" class="hidden">
         <header>
-            <div class="logo"><h3>Shraddha BP</h3></div>
+            <div class="logo"><h3>Shraddha Beauty Parlour</h3></div>
             <div class="center-welcome" id="welcome-msg">Welcome</div>
             <div class="nav-actions">
-                <button class="btn btn-outline" onclick="openProfileModal()"><i class="fas fa-user"></i></button>
-                <button class="btn btn-outline" onclick="openHistoryModal()"><i class="fas fa-history"></i></button>
+                <button class="btn btn-outline" onclick="openProfileModal()">Profile</button>
+                <button class="btn btn-outline" onclick="openHistoryModal()">Bookings</button>
                 <button class="btn btn-outline" onclick="logout()"><i class="fas fa-sign-out-alt"></i></button>
             </div>
         </header>
@@ -118,6 +114,7 @@
         <div style="height: 50px;"></div>
     </div>
 
+    <!-- Modals -->
     <div id="profile-setup-modal" class="modal-overlay hidden">
         <div class="modal-content">
             <h3>Complete Profile</h3>
@@ -177,7 +174,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
-        import { getFirestore, collection, doc, setDoc, updateDoc, getDoc, addDoc, query, where, onSnapshot, serverTimestamp, orderBy, limit, enableIndexedDbPersistence } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
+        import { getFirestore, collection, doc, setDoc, updateDoc, getDoc, addDoc, query, where, onSnapshot, serverTimestamp, orderBy, limit } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyBezpqdpvMf_7fq05XzkmDzn50wULDJL3k",
@@ -193,57 +190,36 @@
         const auth = getAuth(app);
         const db = getFirestore(app);
 
-        // PERSISTENCE FOR MOBILE
-        enableIndexedDbPersistence(db).catch(e => console.log("Persistence:", e.code));
-
-        let currentUser = null, userData = null, selectedService = null;
+        let currentUser = null, userData = null, selectedService = null, historyUnsubscribe = null;
         let allReviews = [], showingAllReviews = false, currentRating = 0;
-        const alertSound = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
-
-        // SYSTEM NOTIFICATION HELPER
-        function sendSystemNotification(title, body) {
-            if (Notification.permission === 'granted') {
-                try {
-                    new Notification(title, { body: body, icon: "https://cdn-icons-png.flaticon.com/512/3233/3233497.png" });
-                } catch (e) { console.log("Notify error:", e); }
-            }
-        }
-
-        function showToast(msg) {
-            const container = document.getElementById('notification-area');
-            const note = document.createElement('div');
-            note.className = 'notification';
-            note.innerHTML = `<strong>Shraddha Beauty Parlour</strong>${msg}`;
-            container.appendChild(note);
-            setTimeout(() => { note.style.opacity = '0'; setTimeout(() => note.remove(), 500); }, 4000);
-        }
 
         const scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting) entry.target.classList.add('active');
+                else entry.target.classList.remove('active');
             });
         }, { threshold: 0.1 });
+
         function observeElements() { document.querySelectorAll('.reveal, .service-card, .review-card').forEach(el => scrollObserver.observe(el)); }
 
         window.toggleAuth = (m) => { document.getElementById('login-form').classList.toggle('hidden', m==='signup'); document.getElementById('signup-form').classList.toggle('hidden', m==='login'); };
         window.signup = () => createUserWithEmailAndPassword(auth, document.getElementById('signup-email').value, document.getElementById('signup-pass').value).catch(e=>alert(e.message));
-        window.login = () => signInWithEmailAndPassword(auth, document.getElementById('login-email').value, document.getElementById('login-pass').value).then(()=>{
-            Notification.requestPermission();
-        }).catch(e=>alert(e.message));
+        window.login = () => signInWithEmailAndPassword(auth, document.getElementById('login-email').value, document.getElementById('login-pass').value).catch(e=>alert(e.message));
         window.logout = () => signOut(auth).then(()=>location.reload());
 
         onAuthStateChanged(auth, async (u) => {
-            const loader = document.getElementById('page-loader');
             if (u) {
                 currentUser = u;
+                // Request Notification Permission on Login
                 if (Notification.permission !== 'granted') { Notification.requestPermission(); }
+                
                 const snap = await getDoc(doc(db, "users", u.uid));
                 if (snap.exists()) { userData = snap.data(); showApp(); }
                 else { document.getElementById('auth-section').classList.add('hidden'); document.getElementById('profile-setup-modal').classList.remove('hidden'); }
             } else {
                 document.getElementById('auth-section').classList.remove('hidden'); document.getElementById('app-section').classList.add('hidden');
+                setTimeout(observeElements, 500);
             }
-            if(loader) loader.style.display = 'none';
         });
 
         window.completeSetup = async () => {
@@ -258,51 +234,89 @@
         async function showApp() {
             document.getElementById('auth-section').classList.add('hidden'); document.getElementById('app-section').classList.remove('hidden');
             document.getElementById('welcome-msg').innerText = `Welcome, ${(userData.name||'User').split(' ')[0]}`;
-            startServicesListener(); startPaymentQRListener(); startReviewsListener(); startBookingListener(); startNotificationService();
+            startServicesListener(); startPaymentQRListener(); startReviewsListener(); startNotificationService();
             setTimeout(observeElements, 500);
         }
 
-        // --- FIXED: BOOKING LISTENER FOR NOTIFICATIONS ---
-        let firstRun = true;
-        function startBookingListener() {
-            const q = query(collection(db, "orders"), where("userId", "==", currentUser.uid));
-            onSnapshot(q, (snapshot) => {
-                if(!firstRun) { // Only notify on changes, not initial load
-                    snapshot.docChanges().forEach((change) => {
-                        if (change.type === "modified") {
-                            const order = change.doc.data();
-                            if (order.status === 'Confirmed') {
-                                alertSound.play().catch(()=>{});
-                                showToast("Booking Confirmed! ✅");
-                                sendSystemNotification("Booking Confirmed", `Your appointment for ${order.serviceName} is approved.`);
-                            } else if (order.status === 'Rejected') {
-                                alertSound.play().catch(()=>{});
-                                showToast("Booking Rejected ❌");
-                                sendSystemNotification("Booking Update", `Your booking for ${order.serviceName} was rejected.`);
-                            }
-                        }
-                    });
-                }
-                firstRun = false;
-            });
-        }
+        window.openProfileModal = () => {
+            document.getElementById('edit-email').value = currentUser.email;
+            document.getElementById('edit-name').value = userData.name;
+            document.getElementById('edit-phone').value = userData.phone;
+            document.getElementById('edit-profile-modal').classList.remove('hidden');
+        };
 
-        window.openProfileModal = () => { document.getElementById('edit-email').value = currentUser.email; document.getElementById('edit-name').value = userData.name; document.getElementById('edit-phone').value = userData.phone; document.getElementById('edit-profile-modal').classList.remove('hidden'); };
-        window.updateUserProfile = async () => { const newName = document.getElementById('edit-name').value, newPhone = document.getElementById('edit-phone').value; if(!newName || !newPhone) return alert("Fields cannot be empty"); try { await updateDoc(doc(db, "users", currentUser.uid), { name: newName, phone: newPhone }); userData.name = newName; userData.phone = newPhone; document.getElementById('welcome-msg').innerText = `Welcome, ${newName.split(' ')[0]}`; showToast("Profile Updated!"); closeModal('edit-profile-modal'); } catch (e) { alert("Error: " + e.message); } };
-        function startReviewsListener() { const q = query(collection(db, "reviews"), orderBy("timestamp", "desc")); onSnapshot(q, (snapshot) => { allReviews = []; snapshot.forEach(doc => allReviews.push(doc.data())); renderReviews(); }); }
-        function renderReviews() { const grid = document.getElementById('reviews-grid'); grid.innerHTML = ''; if(allReviews.length === 0) { grid.innerHTML = '<p style="text-align:center; color:#888; grid-column:1/-1;">No reviews yet.</p>'; document.getElementById('view-all-btn').style.display = 'none'; return; } const displayList = showingAllReviews ? allReviews : allReviews.slice(0, 3); const btn = document.getElementById('view-all-btn'); btn.style.display = allReviews.length > 3 ? 'inline-block' : 'none'; btn.innerText = showingAllReviews ? 'Show Less' : 'View All Reviews'; displayList.forEach(r => { let starsHTML = ''; for(let i=0; i<5; i++) starsHTML += i < r.rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>'; const date = r.timestamp ? new Date(r.timestamp.seconds * 1000).toLocaleDateString() : ''; grid.innerHTML += `<div class="review-card reveal"><div class="review-header"><span class="reviewer-name">${r.userName}</span><div class="review-stars">${starsHTML}</div></div><p class="review-text">"${r.text}"</p><small class="review-date">${date}</small></div>`; }); setTimeout(observeElements, 100); }
+        window.updateUserProfile = async () => {
+            const newName = document.getElementById('edit-name').value, newPhone = document.getElementById('edit-phone').value;
+            if(!newName || !newPhone) return alert("Fields cannot be empty");
+            try { await updateDoc(doc(db, "users", currentUser.uid), { name: newName, phone: newPhone }); userData.name = newName; userData.phone = newPhone; document.getElementById('welcome-msg').innerText = `Welcome, ${newName.split(' ')[0]}`; showToast("Profile Updated!"); closeModal('edit-profile-modal'); } catch (e) { alert("Error: " + e.message); }
+        };
+
+        function startReviewsListener() {
+            const q = query(collection(db, "reviews"), orderBy("timestamp", "desc"));
+            onSnapshot(q, (snapshot) => { allReviews = []; snapshot.forEach(doc => allReviews.push(doc.data())); renderReviews(); });
+        }
+        function renderReviews() {
+            const grid = document.getElementById('reviews-grid'); grid.innerHTML = '';
+            if(allReviews.length === 0) { grid.innerHTML = '<p style="text-align:center; color:#888; grid-column:1/-1;">No reviews yet.</p>'; document.getElementById('view-all-btn').style.display = 'none'; return; }
+            const displayList = showingAllReviews ? allReviews : allReviews.slice(0, 3);
+            const btn = document.getElementById('view-all-btn'); btn.style.display = allReviews.length > 3 ? 'inline-block' : 'none'; btn.innerText = showingAllReviews ? 'Show Less' : 'View All Reviews';
+            displayList.forEach(r => {
+                let starsHTML = ''; for(let i=0; i<5; i++) starsHTML += i < r.rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
+                const date = r.timestamp ? new Date(r.timestamp.seconds * 1000).toLocaleDateString() : '';
+                grid.innerHTML += `<div class="review-card reveal"><div class="review-header"><span class="reviewer-name">${r.userName}</span><div class="review-stars">${starsHTML}</div></div><p class="review-text">"${r.text}"</p><small class="review-date">${date}</small></div>`;
+            });
+            setTimeout(observeElements, 100);
+        }
         window.toggleAllReviews = () => { showingAllReviews = !showingAllReviews; renderReviews(); }
         window.openReviewModal = () => { currentRating = 0; updateStarUI(); document.getElementById('review-text').value = ''; document.getElementById('review-modal').classList.remove('hidden'); }
         window.setRating = (n) => { currentRating = n; updateStarUI(); }
         function updateStarUI() { document.querySelectorAll('#star-selector i').forEach((s, i) => s.classList.toggle('active', i < currentRating)); }
-        window.submitReview = async () => { const text = document.getElementById('review-text').value; if(currentRating === 0 || !text) return alert("Please rate and write a message!"); try { await addDoc(collection(db, "reviews"), { userId: currentUser.uid, userName: userData.name || "Anonymous", rating: currentRating, text: text, timestamp: serverTimestamp() }); showToast("Review Submitted!"); closeModal('review-modal'); } catch(e) { alert("Error: " + e.message); } }
-        function startServicesListener() { onSnapshot(collection(db, "products"), (snap) => { const g = document.getElementById('services-grid'); g.innerHTML = ''; if(snap.empty) { g.innerHTML='<p>No services</p>'; return; } snap.forEach(d => { const s = d.data(); g.innerHTML += `<div class="service-card reveal"><img src="${s.image||''}" class="service-img"><div class="service-info"><h4>${s.name}</h4><div class="service-price">₹${s.price}</div><p style="color:#888;font-size:0.9rem">${s.description||''}</p><button class="btn btn-gold" style="width:100%" onclick="openBookingModal('${d.id}','${s.name}','${s.price}')">Book</button></div></div>`; }); setTimeout(observeElements, 100); }); }
+        window.submitReview = async () => {
+            const text = document.getElementById('review-text').value;
+            if(currentRating === 0 || !text) return alert("Please rate and write a message!");
+            try { await addDoc(collection(db, "reviews"), { userId: currentUser.uid, userName: userData.name || "Anonymous", rating: currentRating, text: text, timestamp: serverTimestamp() }); showToast("Review Submitted!"); closeModal('review-modal'); } catch(e) { alert("Error: " + e.message); }
+        }
+
+        function startServicesListener() {
+            onSnapshot(collection(db, "products"), (snap) => {
+                const g = document.getElementById('services-grid'); g.innerHTML = '';
+                if(snap.empty) { g.innerHTML='<p>No services</p>'; return; }
+                snap.forEach(d => { const s = d.data(); g.innerHTML += `<div class="service-card reveal"><img src="${s.image||''}" class="service-img"><div class="service-info"><h4>${s.name}</h4><div class="service-price">₹${s.price}</div><p style="color:#888;font-size:0.9rem">${s.description||''}</p><button class="btn btn-gold" style="width:100%" onclick="openBookingModal('${d.id}','${s.name}','${s.price}')">Book</button></div></div>`; });
+                setTimeout(observeElements, 100);
+            });
+        }
         function startPaymentQRListener() { onSnapshot(doc(db, "app_config", "payment"), d => { if(d.exists()) document.getElementById('payment-qr').src = d.data().qrUrl; }); }
-        window.openBookingModal = (id, name, price) => { selectedService = { id, name, price }; document.getElementById('booking-modal').classList.remove('hidden'); document.getElementById('booking-service-name').innerText = name; document.getElementById('booking-service-price').innerText = `Price: ₹${price}`; document.getElementById('book-name').value = userData.name; document.getElementById('book-phone').value = userData.phone; const now = new Date(); now.setMinutes(now.getMinutes()-now.getTimezoneOffset()); document.getElementById('book-date').min = now.toISOString().slice(0,16); };
-        window.closeModal = (id) => { document.getElementById(id).classList.add('hidden'); };
-        window.confirmBooking = async (e) => { e.preventDefault(); const finalName = document.getElementById('book-name').value, finalPhone = document.getElementById('book-phone').value, dateStr = document.getElementById('book-date').value, txnId = document.getElementById('book-txn').value; try { await addDoc(collection(db, "orders"), { userId: currentUser.uid, customerName: finalName, phone: finalPhone, serviceId: selectedService.id, serviceName: selectedService.name, price: selectedService.price, bookingDateString: dateStr, txnId: txnId, status: "Pending", timestamp: serverTimestamp(), isTrashed: false }); showToast("Booking Successful! Wait for confirmation."); closeModal('booking-modal'); document.getElementById('book-txn').value = ""; } catch (err) { alert("Failed: " + err.message); } };
         
-        let historyUnsubscribe = null;
+        window.openBookingModal = (id, name, price) => {
+            selectedService = { id, name, price };
+            document.getElementById('booking-modal').classList.remove('hidden');
+            document.getElementById('booking-service-name').innerText = name;
+            document.getElementById('booking-service-price').innerText = `Price: ₹${price}`;
+            document.getElementById('book-name').value = userData.name;
+            document.getElementById('book-phone').value = userData.phone;
+            const now = new Date(); now.setMinutes(now.getMinutes()-now.getTimezoneOffset());
+            document.getElementById('book-date').min = now.toISOString().slice(0,16);
+        };
+        window.closeModal = (id) => { document.getElementById(id).classList.add('hidden'); if(id==='history-modal' && historyUnsubscribe) { historyUnsubscribe(); historyUnsubscribe=null; } };
+        
+        window.confirmBooking = async (e) => {
+            e.preventDefault();
+            const finalName = document.getElementById('book-name').value;
+            const finalPhone = document.getElementById('book-phone').value;
+            const dateStr = document.getElementById('book-date').value;
+            const txnId = document.getElementById('book-txn').value;
+            try { 
+                await addDoc(collection(db, "orders"), { 
+                    userId: currentUser.uid, customerName: finalName, phone: finalPhone, 
+                    serviceId: selectedService.id, serviceName: selectedService.name, price: selectedService.price, 
+                    bookingDateString: dateStr, txnId: txnId, status: "Pending", timestamp: serverTimestamp(), isTrashed: false 
+                }); 
+                showToast("Booking Successful! Wait for confirmation.");
+                closeModal('booking-modal'); 
+                document.getElementById('book-txn').value = ""; 
+            } catch (err) { alert("Failed: " + err.message); }
+        };
+
         window.openHistoryModal = () => {
             document.getElementById('history-modal').classList.remove('hidden');
             const list = document.getElementById('history-list'); list.innerHTML = '<div class="loader"></div>';
@@ -319,24 +333,58 @@
             });
         };
 
+        function showToast(msg) {
+            const container = document.getElementById('notification-area');
+            const note = document.createElement('div');
+            note.className = 'notification';
+            note.innerHTML = `<strong>Shraddha Beauty Parlour</strong>${msg}`;
+            container.appendChild(note);
+            setTimeout(() => { note.style.opacity = '0'; setTimeout(() => note.remove(), 500); }, 3000);
+        }
+
+        // --- 20 MIN REMINDER SYSTEM ---
         function startNotificationService() {
+            // Check every 60 seconds
             setInterval(async () => {
                 const now = new Date().getTime();
-                const q = query(collection(db, "orders"), where("userId", "==", currentUser.uid), where("status", "==", "Confirmed"));
-                import("https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js").then(mod => mod.getDocs(q)).then(snap => {
-                    snap.forEach(doc => {
-                        const b = doc.data(); const apptTime = new Date(b.bookingDateString).getTime(); const diff = Math.floor((apptTime - now) / 60000);
-                        if (diff > 0 && diff <= 20) {
-                            const alertId = `remind-${doc.id}`;
-                            if (!sessionStorage.getItem(alertId)) {
-                                showToast(`Reminder: ${b.serviceName} is in ${diff} mins!`);
-                                sendSystemNotification("Reminder", `Your ${b.serviceName} starts in ${diff} mins.`);
-                                sessionStorage.setItem(alertId, "true");
+                
+                // Get confirmed bookings for this user
+                const q = query(collection(db, "orders"), 
+                    where("userId", "==", currentUser.uid), 
+                    where("status", "==", "Confirmed"));
+                
+                // NOTE: 'onSnapshot' is better for real-time, but 'getDocs' is fine for polling interval
+                // Using getDocs to avoid constant stream open
+                const querySnapshot = await import("https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js")
+                    .then(mod => mod.getDocs(q));
+
+                querySnapshot.forEach(doc => {
+                    const b = doc.data();
+                    const apptTime = new Date(b.bookingDateString).getTime();
+                    const diffMs = apptTime - now;
+                    const diffMins = Math.floor(diffMs / 60000);
+
+                    // If appointment is in 20 minutes (or less, but in future)
+                    if (diffMins > 0 && diffMins <= 20) {
+                        const alertId = `alert-${doc.id}`;
+                        // Ensure we haven't alerted for this session yet
+                        if (!sessionStorage.getItem(alertId)) {
+                            // 1. In-App Toast
+                            showToast(`Reminder: ${b.serviceName} is in ${diffMins} mins!`);
+                            
+                            // 2. System Push Notification (If permission granted)
+                            if (Notification.permission === "granted") {
+                                new Notification("Appointment Reminder", {
+                                    body: `Your appointment for ${b.serviceName} is starting in ${diffMins} minutes.`,
+                                    icon: "https://cdn-icons-png.flaticon.com/512/3233/3233497.png" // Generic beauty icon
+                                });
                             }
+                            
+                            sessionStorage.setItem(alertId, "true");
                         }
-                    });
+                    }
                 });
-            }, 60000);
+            }, 60000); // Run every minute
         }
     </script>
 </body>
